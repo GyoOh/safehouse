@@ -113,7 +113,7 @@ const GetGoogleMap = ({
                 lng: parseInt(item.geometry[0].coordinates[0]),
               }}
               icon={{
-                url: "/fire.svg",
+                url: "/Fire.svg",
                 scaledSize: new window.google.maps.Size(30, 40),
                 origin: new window.google.maps.Point(0, 0),
                 anchor: new window.google.maps.Point(15, 15),
