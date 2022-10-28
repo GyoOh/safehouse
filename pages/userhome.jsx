@@ -22,10 +22,9 @@ import {
 } from "firebase/firestore";
 import { db } from "/firebase";
 import GetGoogleMap from "../components/locations/GetGoogleMap";
-import axios from "axios";
 // import SliderFull from "../components/D3Components/Slider/SliderFull";
 
-export default function UserHome() {
+export default function UserHome({ data }) {
   const [isClicked, setIsClicked] = useState(false);
   const [isBothClicked, setIsBothClicked] = useState(false);
   const [state, setState] = useState([
@@ -59,7 +58,7 @@ export default function UserHome() {
       image: "",
     },
   ]);
-  const [data, setData] = useState([]);
+  console.log(data);
 
   useEffect(() => {
     const homeRef = collection(db, "homes");
@@ -75,16 +74,6 @@ export default function UserHome() {
       );
     });
     return unsubscribe;
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get(
-        "https://eonet.gsfc.nasa.gov/api/v3/events"
-      );
-      const { events } = response.data;
-      setData(events);
-    })();
   }, []);
   const selectHandler = e => {
     switch (e.target.value) {
@@ -166,7 +155,6 @@ export default function UserHome() {
               // setFiremap={setFiremap}
             /> */}
             <GetGoogleMap
-              data={data}
               hostInfo={state}
               isClicked={isClicked}
               isBothClicked={isBothClicked}
