@@ -20,8 +20,8 @@ const GetGoogleMap = ({
   },
   isClicked = false,
   isBothClicked = false,
+  data,
 }) => {
-  const [data, setData] = useState([]);
   const [locationInfo, setLocationInfo] = useState(null);
   const nasaApiKey = process.env.NEXT_PUBLIC_NASA_API;
   const [state, setState] = useState({ address: "" });
@@ -39,16 +39,6 @@ const GetGoogleMap = ({
   useEffect(() => {
     setIsSearched(true);
   }, [postCenter]);
-
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get(
-        "https://eonet.gsfc.nasa.gov/api/v3/events"
-      );
-      const { events } = response.data;
-      setData(events);
-    })();
-  }, []);
 
   const onSubmitHandler = e => {
     e.preventDefault();
