@@ -58,7 +58,6 @@ export default function UserHome({ data }) {
       image: "",
     },
   ]);
-  console.log(data);
 
   useEffect(() => {
     const homeRef = collection(db, "homes");
@@ -89,8 +88,6 @@ export default function UserHome({ data }) {
         return "Both";
     }
   };
-  console.log("isBothClicked", isBothClicked);
-  console.log("isClicked", isClicked);
 
   return (
     <div>

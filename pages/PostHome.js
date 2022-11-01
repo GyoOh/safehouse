@@ -4,7 +4,6 @@ import CreatHomePost from "../components/hostPosting/CreatHomePost";
 import { Container } from '@mui/material'
 import Script from "next/script";
 import Dropdown from "../components/D3Components/Dropdown/Dropdown";
-
 import React from 'react'
 
 export default function PostHome() {
@@ -12,21 +11,6 @@ export default function PostHome() {
     <BackgroundContainer src="homeBG.png">
       <MainContainer>
         <LeftContainer>
-          <div className="flex flex-col gap-4 pb-10">
-            <AppText
-              txt="Tell us something about your place."
-              fontSize="34px"
-              color="#f5f5f5"
-            />
-            {/* <AppText
-              txt="What kind of place will you be hosting ?"
-              fontSize="18px"
-              color="#f5f5f5"
-            /> */}
-            {/* <Dropdown
-              backgroundColor="#f5f5f5"
-            /> */}
-          </div>
           <Script
             id="my-script"
             strategy="beforeInteractive"
@@ -39,4 +23,3 @@ export default function PostHome() {
     </BackgroundContainer>
   )
 }
-

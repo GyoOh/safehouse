@@ -17,15 +17,27 @@ import { useRouter } from 'next/router'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PublishIcon from '@mui/icons-material/Publish';
-
+import AppText from '../D3Components/AppText/AppText';
 
 
 function CreatHomePost() {
 
-
     const [open, setOpen] = useState(false);
     const [alertType, setAlertType] = useState("success");
     const [alertMessage, setAlertMessage] = useState("");
+
+
+    const titles = [
+        "Tell us somethingn about your place",
+        "What's your address?",
+        "How many people will you be hosting?",
+        "Let's more details of your home",
+        "Let's more details of your home",
+        "Upload some photos of your place",
+        "Review and Confirm"
+    ]
+
+
 
     const showAlert = (type, message) => {
         setAlertType(type);
@@ -41,6 +53,7 @@ function CreatHomePost() {
     }
 
     const router = useRouter()
+    const [state, setState] = useState({ address: "," });
     const [formData, setFormData] = useState({
 
         homeType: '',
@@ -74,15 +87,14 @@ function CreatHomePost() {
 
     });
 
-
-
     const [page, setPage] = useState(0);
+
     const conditionalComponent = () => {
         switch (page) {
             case 0:
-                return <FormHouseDetail formData={formData} setFormData={setFormData} />;
+                return <FormHouseDetail formData={formData} setFormData={setFormData} title="aaa" />;
             case 1:
-                return <FormAddressDetail formData={formData} setFormData={setFormData} />;
+                return <FormAddressDetail formData={formData} setFormData={setFormData} state={state} setState={setState} />;
             case 2:
                 return <FormRoomDetails formData={formData} setFormData={setFormData} />;
             case 3:
@@ -112,19 +124,21 @@ function CreatHomePost() {
         //         setPage(page + 1);
         //     }
         // }
-        // if (page === 1) {
+        if (page === 1) {
 
-        //     if (formData.addressLine1 === '') {
-        //         showAlert('warning', 'Please enter an address');
-        //     } else if (formData.city === '') {
-        //         showAlert('warning', 'Please enter a city');
-        //     } else if (formData.postalCode === '') {
-        //         showAlert('warning', 'Please enter a postal code');
-        //     } else {
-        //         setPage(page + 1);
-        //     }
+            setFormData({ ...formData, addressLine1: state.address.split(',')[0], city: state.address.split(',')[2], province: state.address.split(',')[3] })
 
-        // }
+            // if (formData.addressLine1 === '') {
+            //     showAlert('warning', 'Please enter an address');
+            // } else if (formData.city === '') {
+            //     showAlert('warning', 'Please enter a city');
+            // } else if (formData.postalCode === '') {
+            //     showAlert('warning', 'Please enter a postal code');
+            // } else {
+            //     setPage(page + 1);
+            // }
+
+        }
         // if (page === 2) {
         //     if (formData.guests === 0) {
         //         showAlert('warning', 'Please enter the number of guests allowed');
@@ -168,6 +182,21 @@ function CreatHomePost() {
 
     return (
         <div className=''>
+            <div className="flex flex-col gap-4 pb-10">
+                <AppText
+                    txt={titles[page]}
+                    fontSize="34px"
+                    color="#f5f5f5"
+                />
+                {/* <AppText
+              txt="What kind of place will you be hosting ?"
+              fontSize="18px"
+              color="#f5f5f5"
+            /> */}
+                {/* <Dropdown
+              backgroundColor="#f5f5f5"
+            /> */}
+            </div>
             {conditionalComponent()}
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}

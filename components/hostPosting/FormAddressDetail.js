@@ -9,8 +9,8 @@ import { TextField } from '@mui/material';
 import Autocomplete from '../Autocomplete';
 
 
-export default function FormAddressDetail({ formData, setFormData }) {
-  const [state, setState] = useState({ address: "," });
+export default function FormAddressDetail({ formData, setFormData, state, setState }) {
+
 
   const addressAry = state.address.split(",")
 
@@ -26,6 +26,7 @@ export default function FormAddressDetail({ formData, setFormData }) {
       .catch(error => console.error("Error", error));
   };
 
+  console.log("formData", formData)
 
   return (
     <div>

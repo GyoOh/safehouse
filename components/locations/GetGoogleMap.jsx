@@ -36,7 +36,6 @@ const GetGoogleMap = ({
   const [distanceInfo, setDistanceInfo] = useState(null);
   const [data, setData] = useState([]);
 
-  console.log(data);
   useEffect(() => {
     setIsSearched(true);
   }, [postCenter]);
@@ -133,10 +132,6 @@ const GetGoogleMap = ({
       return null;
     })
     .filter(item => item !== null);
-
-  console.log("data and fire markers");
-  console.log(data);
-  console.log(fireMarkers);
 
   const containerStyle = {
     width: "700",
