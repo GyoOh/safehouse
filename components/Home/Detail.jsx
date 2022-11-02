@@ -15,9 +15,6 @@ const Detail = ({ state }) => {
   const buttonHandler = () => {
     router.push("/chat");
   };
-  if (state.length === 0) {
-    return <div>Loading...</div>;
-  }
   return (
     <>
       <div>
@@ -26,7 +23,7 @@ const Detail = ({ state }) => {
         </div>
 
         <Image
-          src={state.image && state.image}
+          src={state?.image && state.image}
           width="2000px"
           height="1300px"
         />

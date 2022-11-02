@@ -158,7 +158,7 @@ const GetGoogleMap = ({
           /> */}
           {/* button class is border black */}
           <button
-            className="border-4 border-black border-l-black"
+            className="dropd flex bg-[#fff] text-[#8C8C8C] gap-20 w-[234px] rounded-md justify-start"
             onClick={findmylocation}
           >
             Current Location

@@ -5,10 +5,6 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 export default function Info({
   state = {
-    address: "",
-    lat: "",
-    lng: "",
-    country: "",
     province: "",
     city: "",
     guests: "",
@@ -21,7 +17,11 @@ export default function Info({
     <div>
       <div className="flex mt-3 gap-14">
         <AppText
-          txt="One Bedroom suite available for wildfire evacuees"
+          txt={
+            state?.bedrooms
+              ? `${state.bedrooms}Bedroom suite available for wildfire evacuees`
+              : "Sorry we don't have any suites available for wildfire evacuees at this time"
+          }
           color="black"
           fontSize="16px"
           fontWeight="500"
@@ -44,7 +44,7 @@ export default function Info({
         />
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
         <AppText
-          txt={state?.beds ? state.bed : "No bed"}
+          txt={state?.beds ? state.beds : "No bed"}
           color="#272727"
           fontSize="14px"
           fontWeight="400"
@@ -62,11 +62,11 @@ export default function Info({
           txt={
             state?.city
               ? state.city
-              : "No city Provided" + ", " + state.province
-              ? state?.province
-              : "No province Provided" + ", " + state.postalCode
+              : "No city" + ", " + state?.province
+              ? state.province
+              : "No province" + ", " + state.postalCode
               ? state?.postalCode
-              : "No postal code Provided"
+              : "No postal code"
           }
           color="#8C8C8C"
           fontSize="14px"
