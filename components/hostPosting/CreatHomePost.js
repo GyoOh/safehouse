@@ -56,7 +56,7 @@ function CreatHomePost() {
     const [state, setState] = useState({ address: "," });
     const [formData, setFormData] = useState({
 
-        homeType: '',
+        homeType: 'House',
         description: '',
 
         addressLine1: '',
