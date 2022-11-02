@@ -164,7 +164,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
               placeholder='Province'
               required
               value={addressAry[addressAry.length - 2]}
-              onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, province: e.target.value })}
             />
           </div>
         </FormControl>
