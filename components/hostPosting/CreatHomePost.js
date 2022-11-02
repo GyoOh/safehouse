@@ -126,7 +126,7 @@ function CreatHomePost() {
         // }
         if (page === 1) {
 
-            setFormData({ ...formData, addressLine1: state.address.split(',')[0], city: state.address.split(',')[2], province: state.address.split(',')[3] })
+            setFormData({ ...formData, addressLine1: state.address.split(',')[0] })
 
             // if (formData.addressLine1 === '') {
             //     showAlert('warning', 'Please enter an address');
@@ -169,6 +169,7 @@ function CreatHomePost() {
 
     async function handleSubmit() {
         const collectionRef = collection(db, 'homes')
+        console.log("formData", formData);
         const docRef = await addDoc(collectionRef, {
             ...formData, timestamp:
                 serverTimestamp()
