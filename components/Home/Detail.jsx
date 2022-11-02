@@ -23,7 +23,7 @@ const Detail = ({ state }) => {
         </div>
 
         <Image
-          src={state?.image && state.image}
+          src={state?.image ? state.image : "No image"}
           width="2000px"
           height="1300px"
         />
