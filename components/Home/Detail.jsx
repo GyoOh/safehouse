@@ -21,12 +21,15 @@ const Detail = ({ state }) => {
         <div className="absolute w-full h-auto">
           <NavBar />
         </div>
-
-        <Image
-          src={state?.image ? state.image : "No image"}
-          width="2000px"
-          height="1300px"
-        />
+        {state?.image ? (
+          <Image
+            src={state?.image ? state.image : ""}
+            width="2000px"
+            height="1300px"
+          />
+        ) : (
+          " No image"
+        )}
 
         <div className="flex flex-col items-left justify-left ml-5">
           <Info state={state} />
